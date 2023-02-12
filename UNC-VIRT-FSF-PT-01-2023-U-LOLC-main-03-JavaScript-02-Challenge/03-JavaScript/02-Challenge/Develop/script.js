@@ -1,4 +1,4 @@
-// Assignment Code
+// variable list
 var generateBtn = document.querySelector("#generate");
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var specialChar = "!#$%&'()*+,-./:;<=>?@][^_`{|}~"
@@ -11,51 +11,57 @@ var isNumerics = false
 var isSpecialChar = false
 var answer = ""
 
-
+//function for verifying password lengths
 function verifyPasswordLength(passwordLength){
-  window.prompt("How long is your password?")
+  passwordLength = window.prompt("How long is your password?")
 
   if(passwordLength<8){
     window.alert("Password should be more than 8 characters!")
-    //return to previous method
+    verifyPasswordLength()
   }
   else if(passwordLength>128){
   window.alert("Password has to be less than 128 characters!")
-    //return to previous method 
+    verifyPasswordLength()
   } 
 verifyCharTypes()
 }
 
 
-
+//prompts for specific password requests
 function verifyCharTypes(){
-  window.prompt("Do you want lowercase characters? Yes or No?");
+  answer = window.prompt("Do you want lowercase characters? Yes or No?");
     if (answer == "yes"){
       isLowercase = true
       console.log(isLowercase)
     }
-    window.prompt("Do you want Uppercase characters? Yes or No?")
-   if (answer == "yes"){
+   answer = window.prompt("Do you want Uppercase characters? Yes or No?")
+    if (answer == "yes"){
       isUppercase = true
+      console.log(isUppercase)
     }
-    window.prompt("Do you want Numbers? Yes or No?")
+   answer = window.prompt("Do you want Numbers? Yes or No?")
     if (answer == "yes"){
       isNumerics = true
+      console.log(isNumerics)
     }
-    window.prompt("Do you want Special characters? Yes or No?")
+    answer = window.prompt("Do you want Special characters? Yes or No?")
     if (answer == "yes"){
       isSpecialChar = true
+      console.log(isSpecialChar)
     }
-    if (isLowercase && isNumerics && isSpecialChar && isUppercase == false){
+    if (isLowercase == false && isNumerics == false && isSpecialChar == false && isUppercase == false){
       window.alert("You must select at least one character type")
       verifyCharTypes()
     }
-    else {
-      //go to next method
-    }
 }
 
+function generatePassword(){
+
+}
+password = generatePassword()
 verifyPasswordLength()
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
